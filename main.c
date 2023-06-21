@@ -12,7 +12,7 @@ var_t var = {0, NULL};
 int main(int argc, char **argv)
 {
 	FILE *file;
-	char line[256];
+	char line[1024];
 	char *opcode;
 	stack_t *stack;
 
@@ -38,6 +38,5 @@ int main(int argc, char **argv)
 		get_opcode(opcode)(&stack, var.line_no);
 	}
 	fclose(file);
-
 	return (0);
 }
