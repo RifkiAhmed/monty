@@ -1,8 +1,7 @@
 #include "monty.h"
 #include <stdio.h>
 #include <string.h>
-
-var_t var = {NULL, 0, NULL};
+var_t var = {0, NULL};
 /**
  * main - checks code
  * @argc: number of args

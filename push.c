@@ -20,7 +20,7 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 	if (var.data == NULL || is_digit(var.data) == -1)
 	{
-		printf("L<%u>: usage: push integer\n", line_number);
+		printf("L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	ele->n = atoi(var.data);
