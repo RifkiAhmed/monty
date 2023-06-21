@@ -36,7 +36,6 @@ typedef struct instruction_s
 } instruction_t;
 /**
  * struct var_s - arguments
- * @ele: element to add or remove from stack
  * @line_no: opcode number of line
  * @data: integer
  *
