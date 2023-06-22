@@ -12,10 +12,7 @@ void push(stack_t **stack, unsigned int line_number)
 	stack_t *ele;
 
 	if (var.argv[1] == NULL || is_digit(var.argv[1]) == -1)
-	{
 		invalid_instr("L%u: usage: push integer\n", line_number);
-		exit(EXIT_FAILURE);
-	}
 
 	ele = malloc(sizeof(stack_t));
 	if (ele == NULL)
