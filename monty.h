@@ -54,7 +54,7 @@ typedef struct var_s
 extern var_t var;
 
 int is_digit(char *token);
-void get_opcode(char *opcode, stack_t **stack, unsigned int line_number);
+void op_execute(char *opcode, stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
