@@ -1,7 +1,7 @@
 #include "monty.h"
 #include <stdio.h>
-#include <string.h>
-var_t var = {NULL, 0, NULL};
+
+var_t var = {NULL, NULL, NULL, 0, 0, NULL};
 /**
  * main - checks code
  * @argc: number of args
@@ -11,24 +11,23 @@ var_t var = {NULL, 0, NULL};
  */
 int main(int argc, char **argv)
 {
-	FILE *file;
-	char line[1024];
-	char *opcode;
-
 	if (argc != 2)
-		invalid_instr("USAGE: monty file\n");
-	file = fopen(argv[1], "r");
-	if (file == NULL)
-		invalid_instr("Error: Can't open file %s\n", argv[1]);
-	var.line_no = 0;
-	while (fgets(line, sizeof(line), file) != NULL)
+		write(2, "USAGE: monty file\n", 18);
+
+	if (!freopen(argv[1], "r", stdin))
+		invalid_instr("Error: Can't open file %s\n", argv[1]);	
+
+	while (getline(&var.lineptr, &var.n, stdin) > 0)
 	{
-		var.line_no++;
-		var.data = NULL;
-		opcode = strtok(line, " \n\0");
-		var.data = strtok(NULL, " \n\0");
-		get_opcode(opcode)(&var.stack, var.line_no);
+		var.line_number++;
+		var.argv = tokenize(var.lineptr);
+
+		if (var.argv)
+			get_opcode(*var.argv)(&var.stack, var.line_number);
+		free(var.argv);
+		var.argv = NULL;
+		free(var.lineptr);
+		var.lineptr = NULL;
 	}
-	fclose(file);
 	return (0);
 }
