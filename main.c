@@ -28,8 +28,8 @@ int main(int argc, char **argv)
 	while (getline(&var.lineptr, &n, file) != -1)
 	{
 		var.line_number++;
-		opcode = strtok(var.lineptr, " \t\n");
-		var.data = strtok(NULL, " \n\t");
+		opcode = strtok(var.lineptr, " \n");
+		var.data = strtok(NULL, " \n");
 		if (opcode != NULL)
 			get_opcode(opcode, &var.stack, var.line_number);
 	}
