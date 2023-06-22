@@ -2,17 +2,17 @@
 
 var_t var;
 /**
- * main - checks code
- * @argc: number of args
- * @argv: args vector
+ * main - executes code
+ * @argc: number of arguments
+ * @argv: arguments vector
  *
- * Return: 0 if success or EXIT_FAILURE if it fails
+ * Return: 0, or "EXIT_FAILURE" if it fails
  */
 int main(int argc, char **argv)
 {
 	size_t n = 0;
-	FILE *file;
 	char *opcode;
+	FILE *file;
 
 	if (argc != 2)
 	{
