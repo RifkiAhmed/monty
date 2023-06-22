@@ -8,7 +8,7 @@
  */
 int is_digit(char *s)
 {
-	if (s == NULL)
+	if (s == NULL || *s == '\0')
 		return (-1);
 	if (*s == '+' || *s == '-')
 		s++;
