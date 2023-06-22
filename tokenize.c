@@ -8,8 +8,8 @@
  */
 char **tokenize(char *lineptr)
 {
-	char **tokens = NULL, *token;
-	unsigned int count = 0, i = 0;
+	char **tokens = NULL;
+	unsigned int count = 0;
 
 	if (!lineptr)
 		return (NULL);
@@ -18,17 +18,24 @@ char **tokenize(char *lineptr)
 	if (count == 0)
 		return (NULL);
 
-	tokens = malloc(sizeof(char *) * (++count));
+	count++;
+	tokens = malloc(sizeof(char *) * count);
 	if (tokens == NULL)
 		return (NULL);
 
-	token = strtok(lineptr, " \t\n");
-	while (token != NULL)
+	for (count = 0; *lineptr; ++count)
 	{
-		tokens[i++] = strdup(token);
-		token = strtok(NULL, " \t\n");
+		while (isspace(*lineptr))
+			*lineptr++ = '\0';
+		if (*lineptr)
+			tokens[count] = lineptr;
+		else
+			break;
+		do {
+			++lineptr;
+		} while (*lineptr && !isspace(*lineptr));
 	}
-	tokens[i] = NULL;
+	tokens[count] = NULL;
 
 	return (tokens);
 }
