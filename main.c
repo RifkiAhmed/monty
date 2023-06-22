@@ -15,7 +15,7 @@ int main(int argc, char **argv)
 		write(2, "USAGE: monty file\n", 18);
 
 	if (!freopen(argv[1], "r", stdin))
-		invalid_instr("Error: Can't open file %s\n", argv[1]);	
+		invalid_instr("Error: Can't open file %s\n", argv[1]);
 
 	while (getline(&var.lineptr, &var.n, stdin) > 0)
 	{

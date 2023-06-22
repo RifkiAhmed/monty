@@ -38,7 +38,11 @@ typedef struct instruction_s
 } instruction_t;
 /**
  * struct var_s - arguments
- * @line_no: opcode number of line
+ * @stack: stack
+ * @argv: arguments vector
+ * @lineptr: pointer to the standard input
+ * @n: integer, size of line
+ * @line_number: opcode number of line
  * @data: integer
  *
  * Description: global variable

@@ -2,7 +2,7 @@
 
 /**
  * tokenize - breaks @str into a sequence of zero or more nonempty tokens
- * @str: pointer to string to tokenize
+ * @lineptr: pointer to string to tokenize
  *
  * Return: array of strings
  */
