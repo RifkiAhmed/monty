@@ -11,19 +11,23 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *ele;
 
-	if (var.argv[1] == NULL || is_digit(var.argv[1]) == -1)
+	if (var.data == NULL || is_digit(var.data) == -1)
 	{
 		free_stack(*stack);
-		invalid_instr("L%u: usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+                free(var.lineptr);
+		exit(EXIT_FAILURE);
 	}
 
 	ele = malloc(sizeof(stack_t));
 	if (ele == NULL)
 	{
 		free_stack(*stack);
-		invalid_instr("Error: malloc failed\n");
+		fprintf(stderr, "Error: malloc failed\n");
+		free(var.lineptr);
+		exit(EXIT_FAILURE);
 	}
-	ele->n = atoi(var.argv[1]);
+	ele->n = atoi(var.data);
 	ele->prev = NULL;
 	if (*stack == NULL)
 	{

@@ -1,7 +1,7 @@
 #include "monty.h"
 #include <stdio.h>
 
-var_t var = {NULL, NULL, NULL, 0, 0, NULL};
+var_t var;
 /**
  * main - checks code
  * @argc: number of args
@@ -11,24 +11,33 @@ var_t var = {NULL, NULL, NULL, 0, 0, NULL};
  */
 int main(int argc, char **argv)
 {
+	size_t n = 0;
+	ssize_t n_char;
+	FILE *file;
+	char *opcode;
+
 	if (argc != 2)
-		invalid_instr("USAGE: monty file\n");
-
-	if (!freopen(argv[1], "r", stdin))
-		invalid_instr("Error: Can't open file %s\n", argv[1]);
-
-	while (getline(&var.lineptr, &var.n, stdin) > 0)
+	{
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
+	file = fopen(argv[1], "r");
+	if (file == NULL)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
+	while ((n_char = getline(&var.lineptr, &n, file)) != -1)
 	{
 		var.line_number++;
-		var.argv = tokenize(var.lineptr);
-
-		if (var.argv)
-			get_opcode(*var.argv)(&var.stack, var.line_number);
-		free(var.argv);
-		var.argv = NULL;
-		free(var.lineptr);
-		var.lineptr = NULL;
+		opcode = strtok(var.lineptr, " \t\r\n\a");
+		var.data = strtok(NULL, " \n\t");
+		if (opcode == NULL)
+			continue;
+		get_opcode(opcode, &var.stack, var.line_number);
 	}
+	fclose(file);
+	free(var.lineptr);
 	free_stack(var.stack);
 	return (0);
 }
