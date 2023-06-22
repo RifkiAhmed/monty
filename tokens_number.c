@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * count_tokens - counts number of words in @str
+ * tokens_number - counts number of words in @str
  * @str: pointer to string
  *
  * Return: number of tokens
