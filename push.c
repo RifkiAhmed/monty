@@ -18,12 +18,12 @@ void push(stack_t **stack, unsigned int line_number)
 		write(2, "Error: malloc failed\n", 21);
 		exit(EXIT_FAILURE);
 	}
-	if (var.data == NULL || is_digit(var.data) == -1)
+	if (var.argv[1] == NULL || is_digit(var.argv[1]) == -1)
 	{
 		invalid_instr("L%u: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	ele->n = atoi(var.data);
+	ele->n = atoi(var.argv[1]);
 	ele->prev = NULL;
 	if (*stack == NULL)
 	{
