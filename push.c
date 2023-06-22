@@ -18,12 +18,12 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 
 	ele = malloc(sizeof(stack_t));
+	if (ele == NULL)
+	{
+		write(2, "Error: malloc failed\n", 21);
+		exit(EXIT_FAILURE);
+	}
 
-        if (ele == NULL)
-        {
-                write(2, "Error: malloc failed\n", 21);
-                exit(EXIT_FAILURE);
-        }
 	ele->n = atoi(var.argv[1]);
 	ele->prev = NULL;
 	if (*stack == NULL)
