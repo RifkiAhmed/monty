@@ -30,9 +30,8 @@ int main(int argc, char **argv)
 		var.line_number++;
 		opcode = strtok(var.lineptr, " \t\r\n\a");
 		var.data = strtok(NULL, " \n\t");
-		if (opcode == NULL)
-			continue;
-		get_opcode(opcode, &var.stack, var.line_number);
+		if (opcode != NULL)
+			get_opcode(opcode, &var.stack, var.line_number);
 	}
 	fclose(file);
 	free(var.lineptr);
