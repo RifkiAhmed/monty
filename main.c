@@ -11,7 +11,6 @@ var_t var;
 int main(int argc, char **argv)
 {
 	size_t n = 0;
-	ssize_t n_char;
 	FILE *file;
 	char *opcode;
 
@@ -26,7 +25,7 @@ int main(int argc, char **argv)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
-	while ((n_char = getline(&var.lineptr, &n, file)) != -1)
+	while (getline(&var.lineptr, &n, file) != -1)
 	{
 		var.line_number++;
 		opcode = strtok(var.lineptr, " \t\r\n\a");
