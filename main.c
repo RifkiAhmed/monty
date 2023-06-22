@@ -12,7 +12,7 @@ var_t var = {NULL, NULL, NULL, 0, 0, NULL};
 int main(int argc, char **argv)
 {
 	if (argc != 2)
-		write(2, "USAGE: monty file\n", 18);
+		invalid_instr("USAGE: monty file\n");
 
 	if (!freopen(argv[1], "r", stdin))
 		invalid_instr("Error: Can't open file %s\n", argv[1]);
