@@ -63,6 +63,7 @@ unsigned int tokens_number(char *lineptr);
 char **tokenize(char *lineptr);
 void (*get_opcode(char *opcode))();
 void invalid_instr(char *msg, ...);
+void free_stack(stack_t *stack);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 #endif

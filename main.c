@@ -29,5 +29,6 @@ int main(int argc, char **argv)
 		free(var.lineptr);
 		var.lineptr = NULL;
 	}
+	free_stack(var.stack);
 	return (0);
 }
