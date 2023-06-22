@@ -10,6 +10,7 @@ var_t var;
  */
 int main(int argc, char **argv)
 {
+	stack_t *stack = NULL;
 	size_t n = 0;
 	char *opcode;
 	FILE *file;
@@ -31,10 +32,10 @@ int main(int argc, char **argv)
 		opcode = strtok(var.lineptr, " \n");
 		var.data = strtok(NULL, " \n");
 		if (opcode != NULL)
-			op_execute(opcode, &var.stack, var.line_number);
+			op_execute(opcode, &stack, var.line_number);
 	}
 	fclose(file);
 	free(var.lineptr);
-	free_stack(var.stack);
+	free_stack(stack);
 	return (0);
 }

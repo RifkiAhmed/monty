@@ -46,7 +46,6 @@ typedef struct instruction_s
  */
 typedef struct var_s
 {
-	stack_t *stack;
 	char *lineptr;
 	unsigned int line_number;
 	char *data;
