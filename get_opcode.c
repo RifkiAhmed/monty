@@ -26,7 +26,7 @@ void (*get_opcode(char *s))()
 			}
 			i++;
 		}
-		invalid_instr("L%u: unknown instruction %s\n", var.line_number, s);
+		invalid_instr("L<%u>: unknown instruction <%s\n>", var.line_number, s);
 	}
 	return (NULL);
 }
