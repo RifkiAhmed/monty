@@ -38,9 +38,7 @@ typedef struct instruction_s
 /**
  * struct var_s - arguments
  * @stack: stack
- * @argv: arguments vector
  * @lineptr: pointer to the standard input
- * @n: integer, size of line
  * @line_number: opcode number of line
  * @data: integer
  *
@@ -49,7 +47,6 @@ typedef struct instruction_s
 typedef struct var_s
 {
 	stack_t *stack;
-	FILE *file;
 	char *lineptr;
 	unsigned int line_number;
 	char *data;

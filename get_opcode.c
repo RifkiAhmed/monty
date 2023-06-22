@@ -2,7 +2,9 @@
 
 /**
  * get_opcode - find function related to given spcifier
- * @s: format specifier
+ * @opcode: string opcode command
+ * @stack: stack data structure
+ * @line_number: line number og opcode command
  *
  * Return: function pointer or NULL if not found
  */

@@ -15,7 +15,7 @@ void push(stack_t **stack, unsigned int line_number)
 	{
 		free_stack(*stack);
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
-                free(var.lineptr);
+		free(var.lineptr);
 		exit(EXIT_FAILURE);
 	}
 
