@@ -13,6 +13,7 @@ void op_execute(char *opcode, stack_t **stack, unsigned int line_number)
 	instruction_t command[] = {
 		{"push", push},
 		{"pall", pall},
+		{"pint", pint},
 		{NULL, NULL}
 	};
 
