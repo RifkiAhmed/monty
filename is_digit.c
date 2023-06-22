@@ -8,15 +8,14 @@
  */
 int is_digit(char *s)
 {
-	int i;
-
 	if (s == NULL)
 		return (-1);
-	i = 0;
-	while (*(s + i) != '\0')
+	if (*s == '+' || *s == '-')
+		s++;
+	while (*s != '\0')
 	{
-		if (*(s + i) >= '0' && *(s + i) <= '9')
-			i++;
+		if (*s >= '0' && *s <= '9')
+			s++;
 		else
 			return (-1);
 	}
