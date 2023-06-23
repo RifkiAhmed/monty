@@ -37,7 +37,6 @@ typedef struct instruction_s
 } instruction_t;
 /**
  * struct var_s - arguments
- * @stack: stack
  * @lineptr: pointer to the standard input
  * @line_number: opcode number of line
  * @data: integer
@@ -66,4 +65,5 @@ void op_div(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
 void mod(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
 #endif
