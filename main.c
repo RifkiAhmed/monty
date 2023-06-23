@@ -30,6 +30,8 @@ int main(int argc, char **argv)
 	{
 		var.line_number++;
 		opcode = strtok(var.lineptr, " \n");
+		if (opcode == "nop")
+			continue;
 		var.data = strtok(NULL, " \n");
 		if (opcode != NULL)
 			op_execute(opcode, &stack, var.line_number);
