@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 		var.line_number++;
 		opcode = strtok(var.lineptr, " \n");
 		var.data = strtok(NULL, " \n");
-		if (opcode != NULL && strcmp(opcode, "nop") != 0)
+		if (opcode != NULL && strcmp(opcode, "nop") != 0 && *opcode != '#')
 			op_execute(opcode, &stack, var.line_number);
 	}
 	fclose(file);
