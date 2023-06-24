@@ -34,14 +34,15 @@ void push(stack_t **stack, unsigned int line_number)
 		ele->prev = NULL;
 		*stack = ele;
 	}
-	switch (var.mode){
-		case 1:
-			lifo(stack, ele);
-			break;
-		case -1:
-			fifo(stack, ele);
-			break;
-		default:
-			lifo(stack, ele);
+	switch (var.mode)
+	{
+	case 1:
+		lifo(stack, ele);
+		break;
+	case -1:
+		fifo(stack, ele);
+		break;
+	default:
+		lifo(stack, ele);
 	}
 }
