@@ -20,8 +20,8 @@ void rotr(stack_t **stack, unsigned int line_number)
 	{
 		temp = temp->next;
 	}
-	temp->next = *stack;
 	temp->prev->next = NULL;
-	(*stack)->prev = temp;
+	temp->next = *stack;
+	temp->prev = NULL;
 	(*stack) = temp;
 }
