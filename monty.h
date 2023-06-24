@@ -40,7 +40,7 @@ typedef struct instruction_s
  * @lineptr: pointer to the standard input
  * @line_number: opcode number of line
  * @data: integer
- *
+ * @mode: mode for stack 1:LIFO -1:FIFO
  * Description: global variable
  */
 typedef struct var_s
@@ -48,12 +48,15 @@ typedef struct var_s
 	char *lineptr;
 	unsigned int line_number;
 	char *data;
+	int mode;
 } var_t;
 extern var_t var;
 
 int is_digit(char *token);
 void op_execute(char *opcode, stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *stack);
+void lifo(stack_t **stack, stack_t *ele);
+void fifo(stack_t **stack, stack_t *ele);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);

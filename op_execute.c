@@ -11,23 +11,26 @@ void op_execute(char *opcode, stack_t **stack, unsigned int line_number)
 {
 	int i;
 	instruction_t command[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
+		{"push", push}, {"pall", pall}, {"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
-		{"add", add},
-		{"sub", sub},
-		{"div", op_div},
-		{"mul", mul},
+		{"add", add}, {"sub", sub}, {"div", op_div}, {"mul", mul},
 		{"mod", mod},
-		{"pchar", pchar},
-		{"pstr", pstr},
-		{"rotl", rotl},
-		{"rotr", rotr},
+		{"pchar", pchar}, {"pstr", pstr},
+		{"rotl", rotl}, {"rotr", rotr},
 		{NULL, NULL}
 	};
 
+	if (strcmp(opcode, "stack") == 0)
+	{
+		var.mode = 1;
+		return;
+	}
+	if (strcmp(opcode, "queue") == 0)
+	{
+		var.mode = -1;
+		return;
+	}
 	i = 0;
 	while (command[i].opcode)
 	{

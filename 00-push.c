@@ -28,16 +28,20 @@ void push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	ele->n = atoi(var.data);
-	ele->prev = NULL;
 	if (*stack == NULL)
 	{
 		ele->next = NULL;
+		ele->prev = NULL;
 		*stack = ele;
 	}
-	else
-	{
-		ele->next = *stack;
-		(*stack)->prev = ele;
-		*stack = ele;
+	switch (var.mode){
+		case 1:
+			lifo(stack, ele);
+			break;
+		case -1:
+			fifo(stack, ele);
+			break;
+		default:
+			lifo(stack, ele);
 	}
 }
