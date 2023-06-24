@@ -37,6 +37,7 @@ void push(stack_t **stack, unsigned int line_number)
 	else
 	{
 		ele->next = *stack;
+		(*stack)->prev = ele;
 		*stack = ele;
 	}
 }
