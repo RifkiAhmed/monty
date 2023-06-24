@@ -12,7 +12,7 @@ void rotr(stack_t **stack, unsigned int line_number)
 	stack_t *temp;
 
 	(void)line_number;
-	if (*stack == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 		return;
 
 	temp = *stack;
@@ -22,7 +22,6 @@ void rotr(stack_t **stack, unsigned int line_number)
 	}
 	temp->next = *stack;
 	temp->prev->next = NULL;
-	temp->prev = NULL;
 	(*stack)->prev = temp;
 	(*stack) = temp;
 }
