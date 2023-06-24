@@ -33,6 +33,7 @@ void push(stack_t **stack, unsigned int line_number)
 		ele->next = NULL;
 		ele->prev = NULL;
 		*stack = ele;
+		return;
 	}
 	switch (var.mode)
 	{
