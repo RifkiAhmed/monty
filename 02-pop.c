@@ -1,8 +1,8 @@
 #include "monty.h"
 
 /**
- * pop - pop an element from the stack
- * @stack: pointer to the stack
+ * pop - removes the top element of the stack
+ * @stack: pointer to the stack data structure
  * @line_number: line number of opcode pop command
  *
  * Return: Nothing
