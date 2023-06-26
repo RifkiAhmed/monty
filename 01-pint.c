@@ -1,8 +1,9 @@
 #include "monty.h"
+
 /**
  * pint - prints the value at the top of the stack
  * @stack: pointer to the stack data structure
- * @line_number: line number of opcode command
+ * @line_number: line number of opcode pint command
  *
  * Return: Nothing
  */
