@@ -2,7 +2,7 @@
 
 /**
  * swap - swap the top two elements of the stack
- * @stack: pointer to the stack
+ * @stack: pointer to the stack data structure
  * @line_number: line number of opcode swap command
  *
  * Return: Nothing
