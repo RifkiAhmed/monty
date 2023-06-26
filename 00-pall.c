@@ -1,8 +1,9 @@
 #include "monty.h"
+
 /**
- * pall - push an element to the stack
- * @stack: pointer to the stack
- * @line_number: integer line number of opcode
+ * pall - prints all element in the stack
+ * @stack: pointer to the stack data structure
+ * @line_number: line number of opcode pall command
  *
  * Return: Nothing
  */
