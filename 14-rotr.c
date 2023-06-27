@@ -16,7 +16,7 @@ void rotr(stack_t **stack, unsigned int line_number)
 		return;
 
 	temp = *stack;
-	while(temp->next)
+	while (temp->next)
 	{
 		temp = temp->next;
 	}
